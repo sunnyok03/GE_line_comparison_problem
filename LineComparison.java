@@ -37,6 +37,22 @@ public class LineComparison {
         }else{
             System.out.println("Both lines length are not equal.");
         }
+
+        //check if length of one line is greater,equal or lesser
+        System.out.println("Enter two Lines each with two points:-");
+        Point p7 = inputPoint();
+        Point p8 = inputPoint();
+        Point p9 = inputPoint();
+        Point p10 = inputPoint();
+
+        if(lengthCompare(p7,p8,p9,p10) == 0){
+            System.out.println("Both have same length.");
+        }else if(lengthCompare(p7,p8,p9,p10) > 0){
+            System.out.println("Line one has greater length than line two.");
+        }else{
+            System.out.println("Line one has smaller length than line two.");
+        }
+
     }
 
     /*
@@ -58,5 +74,16 @@ public class LineComparison {
         double length1 = distanceBetweenTwoPoints(p1,p2);
         double length2 = distanceBetweenTwoPoints(p3,p4);
         return length2 == length1;
+    }
+    /*
+    Check if one line length is equal, greater or less than other
+    @params: p1,p2,p3,p4 (end points of two lines)
+    @return: Integer value (0 if equal, <0 if first is smaller or >0 if first is greater)
+     */
+    public static int lengthCompare(Point p1,Point p2,Point p3,Point p4){
+        double length1 = distanceBetweenTwoPoints(p1,p2);
+        double length2 = distanceBetweenTwoPoints(p3,p4);
+
+        return String.valueOf(length1).compareTo(String.valueOf(length2));
     }
 }
